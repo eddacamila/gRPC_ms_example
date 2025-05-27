@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package transport;
+
+option go_package = "./;transport";
+
+service TransportService {
+    rpc SendOperationalData(OperationalData) returns (Response);
+}
+
+message OperationalData {
+    string operator_id = 1;
+    string route_id = 2;
+    int32 occupancy = 3;
+    string vehicle_status = 4;
+    string timestamp = 5;
+
+}
+
+message Response {
+    string message = 1;
+}
